@@ -1,13 +1,17 @@
-﻿namespace APICatalago.Domain;
+﻿using System.Collections.ObjectModel;
 
-// Classes com apenas propriedades - sem compartamentos - classes anêmicas
-public class Produto
+namespace APICatalago.Domain;
+
+public class Categoria
 {
-    public int ProdutoId { get; set; }
+    public Categoria()
+    {
+        Produtos = new Collection<Produto>()
+    }
+    public int CategoriaId { get; set; }
     public string? Nome { get; set; }
-    public string? Descricao { get; set; }
-    public decimal Preco { get; set; }
     public string? ImagemUrl { get; set; }
-    public float Estoque { get; set; }
-    public DateTime DataCadastro { get; set; }
+    public ICollection<Produto>? Produtos { get; set; }
 }
+
+// relacionamento 1:n Categorias => Produtos
