@@ -38,3 +38,12 @@ public partial class PopulaTabelas : Migration
 }
 ```
 3. Aplica database
+
+# Dicas para otimizar consultas em banco de dados
+- Evite retornar todos os registros: utilize o método Take() para limitar o número de resultados.
+- Filtre objetos relacionados: utilize o método Where() para evitar o carregamento de dados desnecessários.
+- O método AsNoTracking() pode ser útil em cenários em que você não precisa atualizar ou salvar as entidades retornadas por uma consulta. Isso pode melhorar o desempenho da consulta, pois o Entity Framework não precisa gastar tempo acompanhando as alterações nas entidades.
+    O método AsNoTracking() pode ser usado em diversas situações, como:
+    - Ao recuperar dados para leitura apenas, como para exibir em uma página da web.
+    - Ao realizar consultas agregadas, como contar o número de registros em uma tabela.
+    -Ao recuperar dados de um banco de dados somente leitura.
